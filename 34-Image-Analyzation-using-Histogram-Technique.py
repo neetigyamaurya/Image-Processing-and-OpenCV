@@ -1,15 +1,11 @@
-# Image Histogram - Find, Plot and Analyze
-# It which gives you an overall idea about the intensity distribution of an image
-# It distributes data along x and y-axis
-# x-axis contains range of color values
-# y-axis contains numbers of pixels in an image
-# Plot histogram to extract information about contrast,brightness and intensity.
-
-
+# Image Histogram - Find, Plot, and Analyze
+# This code calculates and plots histograms of an image to analyze its intensity distribution.
+# The x-axis represents the range of color values, and the y-axis represents the number of pixels in the image.
+# Histograms can help extract information about contrast, brightness, and intensity.
 import cv2
 import matplotlib.pyplot as plt
 
-# image = np.zeros((200, 200), np.uint8)
+# Load an image
 image = cv2.imread('images/ColorWall-dp3lzm.jpg')
 height, width = image.shape[:2]
 
@@ -24,20 +20,31 @@ new_width = int(ratio * new_height)
 
 # Resize the image to the new dimensions
 image = cv2.resize(image, (new_width, new_height))
-b, g, r = cv2.split(image)
-# cv2.rectangle(image, (0, 100), (200, 200), 255, -1)
-# cv2.rectangle(image, (0, 50), (50, 100), 127, -1)
 
-histogram = cv2.calcHist([image], [0], None, [256], [0, 256])
-plt.hist(b.ravel(), 256, (0, 256))
-plt.hist(g.ravel(), 256, (0, 256))
-plt.hist(r.ravel(), 256, (0, 256))
+# Split the image into its RGB channels
+b, g, r = cv2.split(image)
+
+# Calculate histograms for each color channel
+hist_b = cv2.calcHist([b], [0], None, [256], [0, 256])
+hist_g = cv2.calcHist([g], [0], None, [256], [0, 256])
+hist_r = cv2.calcHist([r], [0], None, [256], [0, 256])
+
+# Plot the histograms using Matplotlib
+plt.hist(b.ravel(), 256, (0, 256), color='blue', alpha=0.5, label='Blue Channel')
+plt.hist(g.ravel(), 256, (0, 256), color='green', alpha=0.5, label='Green Channel')
+plt.hist(r.ravel(), 256, (0, 256), color='red', alpha=0.5, label='Red Channel')
 plt.title("Histogram")
-plt.plot(histogram)
+plt.xlabel("Pixel Value")
+plt.ylabel("Frequency")
+plt.legend()
 plt.show()
+
+# Display the original image and individual color channels
 cv2.imshow("Image", image)
-cv2.imshow("Blur", b)
-cv2.imshow("Green", g)
-cv2.imshow("Red", r)
+cv2.imshow("Blue Channel", b)
+cv2.imshow("Green Channel", g)
+cv2.imshow("Red Channel", r)
+
+# Wait for a key press, and if 'q' is pressed, close all windows
 if cv2.waitKey(0) == ord('q'):
     cv2.destroyAllWindows()
