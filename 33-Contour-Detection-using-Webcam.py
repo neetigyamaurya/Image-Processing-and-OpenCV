@@ -4,9 +4,11 @@ import numpy as np
 # Open the default camera (usually the webcam)
 cap = cv2.VideoCapture(0)
 
+
 # Define a callback function for trackbars (not used in this code)
 def nothing(x):
     pass
+
 
 # Create a window for adjusting HSV parameters
 cv2.namedWindow("HSV Adjustment", cv2.WINDOW_NORMAL)
