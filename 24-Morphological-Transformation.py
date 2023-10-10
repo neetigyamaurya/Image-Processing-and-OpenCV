@@ -13,7 +13,7 @@ either 0 or 255) that help in processing and analyzing shapes within images. The
 for tasks like noise removal, object detection, and boundary extraction. Two fundamental morphological transformations
 are erosion and dilation.
 
-Erosion is a morphological operation that is used to erode away the boundaries of the foreground objects in a binary
+Erosion is a morphological operation used to erode away the boundaries of the foreground objects in a binary
 image. The key idea is that it "shrinks" the white regions (foreground) by removing pixels from their boundaries.
 Erosion is performed using a small kernel, which is a small matrix-like structure that slides over the image. For each
 pixel in the image, if all the pixels in the kernel are white (255), the pixel remains white; otherwise, it becomes

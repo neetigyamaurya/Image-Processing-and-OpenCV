@@ -15,7 +15,7 @@ kernel_dil = np.ones((2, 2), np.uint8)
 dilation = cv2.dilate(mask, kernel_dil)
 opening = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel_dil)
 kernel_closing = np.ones((3, 3), np.uint8)
-# In closing dilation is performed before erosion
+# In closing, dilation is performed before erosion
 closing = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel_closing)
 # -----------------------------------------------OPTIONAL----------------------------------------------------------------
 x_1 = cv2.morphologyEx(mask, cv2.MORPH_TOPHAT, kernel_closing)  # It is the difference between mask and opening

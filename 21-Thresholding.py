@@ -12,7 +12,7 @@
 # simple thresholding(img,pixel_thresh, max_thresh_pixel,style)
 import cv2
 
-img = cv2.imread("Gradient-of-low-contrast-650x433.jpg", 0)
+img = cv2.imread("images/Gradient-of-low-contrast-650x433.jpg", 0)
 cv2.imshow("Gradient-of-low", img)
 temp, th_1 = cv2.threshold(img, 50, 255, cv2.THRESH_BINARY)
 temp, th_2 = cv2.threshold(img, 50, 255, cv2.THRESH_BINARY_INV)

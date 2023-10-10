@@ -39,7 +39,7 @@ def resize(image, new_height):
     return resized_image
 
 
-threshold = 0.95
+threshold = 0.998
 loc = np.where(res >= threshold)  # Finding the brightest pixel # Will store as width ,height
 for count, i in enumerate(zip(*loc[
                                ::-1])):  # *: The asterisk * is the unpacking operator in Python.
@@ -55,7 +55,7 @@ for count, i in enumerate(zip(*loc[
     '''
     print("i==", i)
     # cv2.rectangle(image, (x1, y1), (x2, y2), color, thickness)
-    cv2.rectangle(image, i, (i[0] + width, i[1] + height), (0, 0, 255), 2)
+    cv2.rectangle(image, i, (i[0] + width, i[1] + height), (0, 0, 255), 50)
 
 new_height = int(input("Enter the new Height of the image: "))
 image = resize(image, new_height)
