@@ -4,6 +4,9 @@ Hough Transformation
 Hough's transformation is a technique used to detect shapes in an image if the shape can be represented mathematically.
 It can even detect shapes that are broken or distorted to some extent.
 
+Image---->convert to gray ----> apply thresholding ----> apply morphological operations ----> apply edge detection ---->
+ apply hough transformation
+
 This code demonstrates two methods of Hough transformation:
 1. cv2.HoughLines(): This method is used to detect lines in an image.
 2. cv2.HoughLinesP(): This method is used for probabilistic Hough line transformation.
