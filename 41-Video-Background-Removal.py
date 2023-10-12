@@ -13,7 +13,7 @@ def resize(image, new_height):
 
 
 algo_1 = cv2.createBackgroundSubtractorMOG2(detectShadows=True)
-algo_2 = cv2.createBackgroundSubtractorKNN(detectShadows=True)
+algo_2 = cv2.createBackgroundSubtractorKNN(detectShadows=True)  # This works better
 
 cap = cv2.VideoCapture('images/traffic.mp4')
 while cap.isOpened():
