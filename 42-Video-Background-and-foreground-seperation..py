@@ -32,7 +32,7 @@ cap = cv2.VideoCapture('images/traffic.mp4')
 
 # read the frames from the file
 _, img = cap.read()
-img = resize(img, 900)
+img = resize(img, 500)
 
 # modify the data type
 # setting to 32-bit floating point
@@ -45,10 +45,10 @@ while cap.isOpened():
     if not ret:
         print("Error opening video stream or file")
         break
-    img = resize(img, 900)
+    img = resize(img, 500)
     # using the cv2.accumulateWeighted() function
     # that updates the running average
-    test = cv2.accumulateWeighted(img, averageValue1, 0.002)
+    test = cv2.accumulateWeighted(img, averageValue1, 0.003)
 
     # converting the matrix elements to absolute values
     # and converting the result to 8-bit.
@@ -62,7 +62,7 @@ while cap.isOpened():
     cv2.imshow('Result', resultingFrames1)
 
     # Wait for q to stop the program
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(24) & 0xFF == ord('q'):
         cap.release()
         cv2.destroyAllWindows()
         break
