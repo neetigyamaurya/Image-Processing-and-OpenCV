@@ -7,8 +7,8 @@ import cv2
 # cv2.imwrite("White.png", white)
 
 # Simple/Modulus addition
-black = cv2.imread("Black.png")
-white = cv2.imread("White.png")
+black = cv2.imread("images/Black.png")
+white = cv2.imread("images/White.png")
 
 result = (
     black + white

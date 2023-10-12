@@ -1,8 +1,8 @@
 import cv2
 import numpy as np
 
-black = cv2.imread("Black.png")
-white = cv2.imread("White.png")
+black = cv2.imread("images/Black.png")
+white = cv2.imread("images/White.png")
 
 blank = np.zeros((500, 500, 3))
 
